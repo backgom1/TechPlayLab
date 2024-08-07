@@ -1,23 +1,34 @@
 package com.mylab.techLab.domain.book.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.mylab.techLab.domain.common.domain.BaseEntity;
+import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-public class Book {
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Book extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "book_id")
     private Long id;
 
     private String title;
 
     private String isbn;
 
+    @Embedded
+    private Publish publish;
 
+    private int price;
+
+    @Column(name = "stock_quantity")
+    private int stockQuantity;
+
+    @Column(name = "del_yn")
+    private String delYn;
 
 }

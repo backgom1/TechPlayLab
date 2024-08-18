@@ -1,21 +1,26 @@
 package com.mylab.techLab.domain.user.domain;
 
-import com.mylab.techLab.domain.book.domain.Book;
+import com.mylab.techLab.domain.common.domain.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ShoppingCart {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cart_id")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
-    private Member member;
+    private String name;
+
+    private String email;
+
+    @Embedded
+    private Address address;
+
+    @Column(name = "del_yn")
+    private String delYn;
 
 }

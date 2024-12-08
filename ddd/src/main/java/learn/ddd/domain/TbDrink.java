@@ -22,7 +22,6 @@ public class TbDrink extends BaseEntity {
 
     private int price;
 
-
     private TbDrink(String drinkName, int price) {
         this.drinkName = drinkName;
         this.price = price;

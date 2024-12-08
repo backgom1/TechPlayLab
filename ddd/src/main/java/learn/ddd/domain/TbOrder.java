@@ -3,7 +3,9 @@ package learn.ddd.domain;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@ToString
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class TbOrder {
@@ -15,4 +17,15 @@ public class TbOrder {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
+
+
+    private TbOrder(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public static TbOrder create(OrderStatus orderStatus) {
+        return new TbOrder(orderStatus);
+    }
+
+
 }

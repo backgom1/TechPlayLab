@@ -1,10 +1,14 @@
 package learn.ddd.domain;
 
 import jakarta.persistence.*;
+import learn.ddd.dto.request.CreateDrinkServiceRequest;
+import learn.ddd.dto.request.UpdateDrinkServiceRequest;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class TbDrink extends BaseEntity {
 
@@ -17,4 +21,19 @@ public class TbDrink extends BaseEntity {
     private String drinkName;
 
     private int price;
+
+
+    private TbDrink(String drinkName, int price) {
+        this.drinkName = drinkName;
+        this.price = price;
+    }
+
+    public static TbDrink create(CreateDrinkServiceRequest request) {
+        return new TbDrink(request.drinkName(), request.price());
+    }
+
+    public static TbDrink update(UpdateDrinkServiceRequest request) {
+        return new TbDrink(request.getDrinkName(), request.getPrice());
+    }
+
 }

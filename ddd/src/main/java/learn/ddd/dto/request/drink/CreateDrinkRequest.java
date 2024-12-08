@@ -1,10 +1,10 @@
-package learn.ddd.dto.request;
+package learn.ddd.dto.request.drink;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 
 @Getter
-public class UpdateDrinkRequest {
+public class CreateDrinkRequest {
 
     @NotBlank(message = "음료 명이 존재하지 않습니다.")
     private String drinkName;
@@ -13,7 +13,7 @@ public class UpdateDrinkRequest {
     private int price;
 
 
-    public static UpdateDrinkServiceRequest toServiceRequest(UpdateDrinkRequest request) {
-        return new UpdateDrinkServiceRequest(request.getDrinkName(), request.getPrice());
+    public static CreateDrinkServiceRequest toServiceRequest(CreateDrinkRequest request) {
+        return new CreateDrinkServiceRequest(request.getDrinkName(), request.getPrice());
     }
 }

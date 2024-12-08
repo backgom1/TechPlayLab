@@ -1,8 +1,8 @@
 package learn.ddd.domain;
 
 import jakarta.persistence.*;
-import learn.ddd.dto.request.CreateDrinkServiceRequest;
-import learn.ddd.dto.request.UpdateDrinkServiceRequest;
+import learn.ddd.dto.request.drink.CreateDrinkServiceRequest;
+import learn.ddd.dto.request.drink.UpdateDrinkServiceRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

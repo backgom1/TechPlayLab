@@ -1,4 +1,4 @@
-package learn.ddd.dto.request;
+package learn.ddd.dto.request.drink;
 
 import lombok.Getter;
 

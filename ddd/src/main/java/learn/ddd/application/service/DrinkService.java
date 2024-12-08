@@ -2,8 +2,8 @@ package learn.ddd.application.service;
 
 
 import learn.ddd.domain.TbDrink;
-import learn.ddd.dto.request.CreateDrinkServiceRequest;
-import learn.ddd.dto.request.UpdateDrinkServiceRequest;
+import learn.ddd.dto.request.drink.CreateDrinkServiceRequest;
+import learn.ddd.dto.request.drink.UpdateDrinkServiceRequest;
 import learn.ddd.dto.response.DrinksResponse;
 import learn.ddd.infra.repository.DrinkJpaRepository;
 import lombok.RequiredArgsConstructor;

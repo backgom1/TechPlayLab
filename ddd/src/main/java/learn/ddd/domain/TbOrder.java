@@ -29,11 +29,32 @@ public class TbOrder {
         return new TbOrder(orderStatus);
     }
 
+    public boolean canChangeOrderState(StaffRole staffRole,OrderStatus currentState, OrderStatus newState) {
+        if (StaffRole.BARISTA == staffRole) {
+            return currentState == OrderStatus.PENDING && newState == OrderStatus.PROGRESS;
+        }
+        if (StaffRole.CASHIER == staffRole) {
+            return currentState == OrderStatus.PROGRESS && newState == OrderStatus.READY;
+        }
+        return false;
+    }
+
     public void changeInProgress(){
+        //캐셔 권한도 추가 해야됌
         if (this.orderStatus != OrderStatus.PENDING) {
             throw new IllegalStateException("이미 주문이 들어간 음료입니다.");
         }
         this.orderStatus = OrderStatus.PROGRESS;
     }
 
+    public void changeReady(StaffRole staffRole) {
+        if (staffRole != StaffRole.BARISTA) {
+            throw new IllegalArgumentException("바리스타 권한이 아닙니다.");
+        }
+        this.orderStatus = OrderStatus.READY;
+    }
+
+    public void changePickup() {
+        this.orderStatus = OrderStatus.COMPLETED;
+    }
 }

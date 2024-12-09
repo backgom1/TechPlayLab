@@ -9,9 +9,12 @@ public class UpdateDrinkServiceRequest {
 
     private final int price;
 
+    private final int amount;
 
-    public UpdateDrinkServiceRequest(String drinkName, int price) {
+
+    public UpdateDrinkServiceRequest(String drinkName, int price, int amount) {
         this.drinkName = drinkName;
         this.price = price;
+        this.amount = amount;
     }
 }

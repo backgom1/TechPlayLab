@@ -12,8 +12,11 @@ public class UpdateDrinkRequest {
     @NotBlank(message = "가격이 존재하지 않습니다.")
     private int price;
 
+    private int amount;
+
+
 
     public static UpdateDrinkServiceRequest toServiceRequest(UpdateDrinkRequest request) {
-        return new UpdateDrinkServiceRequest(request.getDrinkName(), request.getPrice());
+        return new UpdateDrinkServiceRequest(request.getDrinkName(), request.getPrice(),request.getAmount());
     }
 }

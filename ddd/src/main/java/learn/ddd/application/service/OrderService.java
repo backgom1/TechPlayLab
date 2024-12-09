@@ -35,6 +35,8 @@ public class OrderService {
             TbDrink drink = drinkJpaRepository.findById(createRequest.getDrinkId())
                     .orElseThrow(() -> new IllegalArgumentException("존재하지 않은 음료입니다."));
 
+            drink.isCheckEmptyAmount();
+
             TbOrderDrink orderDrink = TbOrderDrink.create(order, drink, createRequest.getQuantity());
 
             List<TbDrinkAddOn> drinkAddOns = createRequest.getDrinkAddOn().stream()

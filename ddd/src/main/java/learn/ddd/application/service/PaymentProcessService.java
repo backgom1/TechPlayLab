@@ -39,7 +39,7 @@ public class PaymentProcessService {
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않은 주문입니다"));
         TbPayment payment = paymentJpaRepository.findById(serviceRequest.getPaymentId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않은 결제입니다."));
-
+        //차감되는 count를 만들어야함
         order.changeInProgress();
         payment.completePay();
 

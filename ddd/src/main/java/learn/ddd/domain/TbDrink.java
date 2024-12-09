@@ -22,6 +22,7 @@ public class TbDrink extends BaseEntity {
 
     private int price;
 
+    //TODO : AtomicInteger 사용
     private int amount;
 
     private TbDrink(String drinkName, int price, int amount) {
@@ -31,15 +32,15 @@ public class TbDrink extends BaseEntity {
     }
 
     public static TbDrink create(CreateDrinkServiceRequest request) {
-        return new TbDrink(request.drinkName(), request.price(),0);
+        return new TbDrink(request.drinkName(), request.price(), 0);
     }
 
     public static TbDrink update(UpdateDrinkServiceRequest request) {
-        return new TbDrink(request.getDrinkName(), request.getPrice(),request.getAmount());
+        return new TbDrink(request.getDrinkName(), request.getPrice(), request.getAmount());
     }
 
     public void isCheckEmptyAmount() {
-        if(amount<0){
+        if (amount < 0) {
             throw new IllegalArgumentException("음료가 존재하지 않습니다. 입고를 기다려주세요");
         }
     }

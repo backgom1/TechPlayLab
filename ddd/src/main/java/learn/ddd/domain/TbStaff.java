@@ -33,6 +33,7 @@ public class TbStaff extends BaseEntity {
         return new TbStaff(request.getStaffName(), request.getStaffPassword(), findStaffRole(request.getStaffRole()));
     }
 
+
     private static StaffRole findStaffRole(String staffRole) {
         if ("Barista".equals(staffRole)) {
             return StaffRole.BARISTA;

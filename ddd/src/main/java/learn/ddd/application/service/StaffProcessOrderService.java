@@ -33,7 +33,7 @@ public class StaffProcessOrderService {
 
         tbOrder.changeReady(tbStaff.getStaffRole());
 
-        //추후 개발 : 어떤 스탭이 음료를 변경했는지 알려주는 히스토리
+        //TODO 추후 개발 : 어떤 스탭이 음료를 변경했는지 알려주는 히스토리
         return new StaffOrderProcessResponse("음료 픽업이 완료되었습니다.");
     }
 
@@ -54,7 +54,7 @@ public class StaffProcessOrderService {
 
         tbOrder.changePickup();
 
-        //추후 개발 : 어떤 스탭이 음료를 변경했는지 알려주는 히스토리
+        //TODO 추후 개발 : 어떤 스탭이 음료를 변경했는지 알려주는 히스토리
         return new StaffOrderProcessResponse("고객이 음료 픽업을 했습니다.");
     }
 }

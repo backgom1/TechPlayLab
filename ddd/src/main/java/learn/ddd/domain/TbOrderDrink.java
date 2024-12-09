@@ -1,12 +1,14 @@
 package learn.ddd.domain;
 
 import jakarta.persistence.*;
+import learn.ddd.dto.request.order.AddOnDrinkDto;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -47,5 +49,13 @@ public class TbOrderDrink extends BaseEntity {
 
     public void addOnDrink(List<TbDrinkAddOn> tbDrinkAddOn) {
         this.addOns.addAll(tbDrinkAddOn);
+    }
+
+    public void addOn(List<AddOnDrinkDto> addOns) {
+        List<TbDrinkAddOn> drinkAddOns = addOns.stream()
+                .map(addon -> new TbDrinkAddOn(addon.getDrinkDetailComment(), addon.findSize(addon.getSize()), addon.getPrice()))
+                .collect(Collectors.toList());
+        //수량 깎은 로직이 필요함
+        this.addOns.addAll(drinkAddOns);
     }
 }

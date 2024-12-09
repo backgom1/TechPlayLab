@@ -1,10 +1,14 @@
 package learn.ddd.domain;
 
 import jakarta.persistence.*;
+import learn.ddd.dto.request.order.AddOnDrinkDto;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @ToString
 @Entity
@@ -16,6 +20,9 @@ public class TbOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long id;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tbOrder")
+    List<TbOrderDrink> tbOrderDrinks = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
@@ -29,7 +36,7 @@ public class TbOrder {
         return new TbOrder(orderStatus);
     }
 
-    public boolean canChangeOrderState(StaffRole staffRole,OrderStatus currentState, OrderStatus newState) {
+    public boolean canChangeOrderState(StaffRole staffRole, OrderStatus currentState, OrderStatus newState) {
         if (StaffRole.BARISTA == staffRole) {
             return currentState == OrderStatus.PENDING && newState == OrderStatus.PROGRESS;
         }
@@ -39,7 +46,7 @@ public class TbOrder {
         return false;
     }
 
-    public void changeInProgress(){
+    public void changeInProgress() {
         //캐셔 권한도 추가 해야됌
         if (this.orderStatus != OrderStatus.PENDING) {
             throw new IllegalStateException("이미 주문이 들어간 음료입니다.");
@@ -56,5 +63,18 @@ public class TbOrder {
 
     public void changePickup() {
         this.orderStatus = OrderStatus.COMPLETED;
+    }
+
+    public void addDrink(TbDrink drink, int quantity, List<AddOnDrinkDto> addOns) {
+        check(drink);
+        TbOrderDrink orderDrink = TbOrderDrink.create(this, drink, quantity);
+        orderDrink.addOn(addOns);
+        this.tbOrderDrinks.add(orderDrink);
+    }
+
+    public void check(TbDrink drink) {
+        if (drink.getAmount() < 0) {
+            //예외
+        }
     }
 }

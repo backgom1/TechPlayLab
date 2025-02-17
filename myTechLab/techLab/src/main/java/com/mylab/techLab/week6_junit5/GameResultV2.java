@@ -1,6 +1,6 @@
-package com.mylab.techLab.week5_test;
+package com.mylab.techLab.week6_junit5;
 
-public enum GameResult {
+public enum GameResultV2 {
 
     EXCEPTION(-1),
     PLAYING(1),
@@ -8,7 +8,7 @@ public enum GameResult {
 
     private final int resultNumber;
 
-    GameResult(int resultNumber) {
+    GameResultV2(int resultNumber) {
         this.resultNumber = resultNumber;
     }
 

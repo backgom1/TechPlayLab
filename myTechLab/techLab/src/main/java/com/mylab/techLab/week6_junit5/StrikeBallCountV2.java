@@ -1,14 +1,14 @@
-package com.mylab.techLab.week5_test;
+package com.mylab.techLab.week6_junit5;
 
-import static com.mylab.techLab.week5_test.GameResult.*;
+import static com.mylab.techLab.week5_test.GameResultV1.*;
 
-public class StrikeBallCount {
+public class StrikeBallCountV2 {
 
     private int resultGame;
     private int strikeCount;
     private int ballCount;
 
-    public StrikeBallCount() {}
+    public StrikeBallCountV2() {}
 
     public int getStrikeCount() {
         return strikeCount;
@@ -38,7 +38,4 @@ public class StrikeBallCount {
         this.resultGame = PLAYING.getResultNumber();
     }
 
-    public void exceptionGame(){
-        this.resultGame = EXCEPTION.getResultNumber();
-    }
 }

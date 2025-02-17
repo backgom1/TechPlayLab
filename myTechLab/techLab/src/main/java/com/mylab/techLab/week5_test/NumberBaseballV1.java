@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class NumberBaseball {
+public class NumberBaseballV1 {
 
     private String number;
 
@@ -24,18 +24,19 @@ public class NumberBaseball {
         System.out.println(number);
     }
 
-    public StrikeBallCount play(String suggestNumber) {
+    public StrikeBallCountV1 play(String suggestNumber) {
 
-        StrikeBallCount strikeBallCount = new StrikeBallCount();
+        StrikeBallCountV1 strikeBallCountV1 = new StrikeBallCountV1();
 
         if (!Pattern.compile("^[1-9]+$").matcher(suggestNumber).matches()) {
-            strikeBallCount.exceptionGame();
-            return strikeBallCount;
+            strikeBallCountV1.exceptionGame();
+            return strikeBallCountV1;
         }
 
         if (suggestNumber.length() != 3) {
-            strikeBallCount.exceptionGame();
-            return strikeBallCount;
+            strikeBallCountV1.exceptionGame();
+            return strikeBallCountV1;
+            //-1
         }
 
         String[] splitNumber = number.split("");
@@ -50,40 +51,39 @@ public class NumberBaseball {
 
 
         if (firstSuggestNumber == secondSuggestNumber || firstSuggestNumber == thirdSuggestNumber || secondSuggestNumber == thirdSuggestNumber) {
-            strikeBallCount.exceptionGame();
-            return strikeBallCount;
+            strikeBallCountV1.exceptionGame();
+            return strikeBallCountV1; //-1
         }
 
         String tempNumber = number;
         if (firstNumber == firstSuggestNumber) {
             String strFirstNumber = String.valueOf(firstNumber);
             tempNumber = tempNumber.replace(strFirstNumber, "0");
-            strikeBallCount.increaseStrikeCount();
+            strikeBallCountV1.increaseStrikeCount();
         }
         if (secondNumber == secondSuggestNumber) {
             String strSecondNumber = String.valueOf(secondNumber);
             tempNumber = tempNumber.replace(strSecondNumber, "0");
-            strikeBallCount.increaseStrikeCount();
+            strikeBallCountV1.increaseStrikeCount();
         }
         if (thirdNumber == thirdSuggestNumber) {
             String strThirdNumber = String.valueOf(thirdNumber);
             tempNumber = tempNumber.replace(strThirdNumber, "0");
-            strikeBallCount.increaseStrikeCount();
+            strikeBallCountV1.increaseStrikeCount();
         }
-
 
         for (String targetNumber : splitSuggestNumber) {
             if (tempNumber.contains(targetNumber)) {
-                strikeBallCount.increaseBallCount();
+                strikeBallCountV1.increaseBallCount();
             }
         }
 
-        if(strikeBallCount.getStrikeCount() ==3){
-            strikeBallCount.finishGame();
+        if(strikeBallCountV1.getStrikeCount() == 3 ){
+            strikeBallCountV1.finishGame();
         }else {
-            strikeBallCount.playGame();
+            strikeBallCountV1.playGame();
         }
 
-        return strikeBallCount;
+        return strikeBallCountV1;
     }
 }

@@ -2,11 +2,13 @@ package com.mylab.techLab.week5_test;
 
 import java.util.Scanner;
 
+import static com.mylab.techLab.week5_test.GameResultV1.*;
+
 
 //TODO : 리팩토링이 아주 많이 필요해보입니다. 허허
-public class GameClient {
+public class GameClientV1 {
     public static void main(String[] args) {
-        NumberBaseball baseball = new NumberBaseball();
+        NumberBaseballV1 baseball = new NumberBaseballV1();
         baseball.init();
         int gameCount = 0;
         long currentTimeMillis = System.currentTimeMillis();
@@ -17,15 +19,15 @@ public class GameClient {
             System.out.println("1~9사이의 3자리의 숫자를 조합하세요");
             System.out.print("입력값 ===> ");
             Scanner scanner = new Scanner(System.in);
-            StrikeBallCount played = baseball.play(scanner.nextLine());
-            if (played.getResultGame() == GameResult.EXCEPTION.getResultNumber()) {
+            StrikeBallCountV1 played = baseball.play(scanner.nextLine());
+            if (played.getResultGame() == EXCEPTION.getResultNumber()) {
                 System.out.println("잘못된 입력 값입니다. 다시 입력해주세요."+ "\n");
                 continue;
             }
             String sb = "스트라이크 : " + played.getStrikeCount() + "개" + "\n" +
                     "볼 : " + played.getBallCount() + "개" + "\n";
             System.out.print(sb);
-            if (played.getResultGame() == GameResult.FINISHED.getResultNumber()) {
+            if (played.getResultGame() == FINISHED.getResultNumber()) {
                 long endTimeMillis = System.currentTimeMillis();
                 endTimeMillis = endTimeMillis - currentTimeMillis;
 

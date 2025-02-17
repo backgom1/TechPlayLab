@@ -40,7 +40,7 @@ import static org.assertj.core.api.Assertions.assertThat;
    8-2.숫자와 위치가 1개 맞고 1개의 숫자만 맞는경우_SXB
    8-3.숫자와 위치가 1개 맞고 1개의 숫자만 맞는경우_XBS
    8-3.숫자와 위치가 1개 맞고 1개의 숫자만 맞는경우_XSB
-  4. 전부 다 맞지 않는 경우 (0,0)
+  9. 전부 다 맞지 않는 경우 (0,0)
 
   * 예외적인 경우에서 어려운 경우
    1. 중복된 숫자가 들어갈 경우
@@ -58,7 +58,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
  */
-class NumberBaseballTest {
+class NumberBaseballTestV1 {
 
 
     @Test
@@ -232,27 +232,28 @@ class NumberBaseballTest {
 
 
     private static void assertFinishBaseballGame(String initNumber, String targetNumber, int expectedStrike,int expectedBall) {
-        NumberBaseball numberBaseball = new NumberBaseball();
-        numberBaseball.testInit(initNumber);
-        StrikeBallCount result = numberBaseball.play(targetNumber);
+        NumberBaseballV1 numberBaseballV1 = new NumberBaseballV1();
+        numberBaseballV1.testInit(initNumber);
+        StrikeBallCountV1 result = numberBaseballV1.play(targetNumber);
         assertThat(result.getResultGame()).isEqualTo(2);
         assertThat(result.getStrikeCount()).isEqualTo(expectedStrike);
         assertThat(result.getBallCount()).isEqualTo(expectedBall);
     }
 
     private static void assertPlayingBaseballGame(String initNumber, String targetNumber, int expectedStrike, int expectedBall) {
-        NumberBaseball numberBaseball = new NumberBaseball();
-        numberBaseball.testInit(initNumber);
-        StrikeBallCount result = numberBaseball.play(targetNumber);
+        NumberBaseballV1 numberBaseballV1 = new NumberBaseballV1();
+        numberBaseballV1.testInit(initNumber);
+        StrikeBallCountV1 result = numberBaseballV1.play(targetNumber);
         assertThat(result.getResultGame()).isEqualTo(1);
         assertThat(result.getStrikeCount()).isEqualTo(expectedStrike);
         assertThat(result.getBallCount()).isEqualTo(expectedBall);
     }
 
     private static void exceptionBaseballGame(String initNumber, String targetNumber) {
-        NumberBaseball numberBaseball = new NumberBaseball();
-        numberBaseball.testInit(initNumber);
-        StrikeBallCount result = numberBaseball.play(targetNumber);
+        NumberBaseballV1 numberBaseballV1 = new NumberBaseballV1();
+        numberBaseballV1.testInit(initNumber);
+        StrikeBallCountV1 result = numberBaseballV1.play(targetNumber);
         assertThat(result.getResultGame()).isEqualTo(-1);
+        //스트라이크가 -1로 반환
     }
 }

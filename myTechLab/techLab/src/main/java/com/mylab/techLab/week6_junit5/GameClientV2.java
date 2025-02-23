@@ -9,7 +9,7 @@ import static com.mylab.techLab.week5_test.GameResultV1.FINISHED;
 //TODO : 리팩토링이 아주 많이 필요해보입니다. 허허
 public class GameClientV2 {
     public static void main(String[] args) {
-        NumberBaseballV2 baseball = new NumberBaseballV2();
+        NumberBaseballV2 baseball = new NumberBaseballV2(new BasicGameSettingV2());
         baseball.init();
         int gameCount = 0;
         long currentTimeMillis = System.currentTimeMillis();
@@ -20,7 +20,7 @@ public class GameClientV2 {
             System.out.println("1~9사이의 3자리의 숫자를 조합하세요");
             System.out.print("입력값 ===> ");
             Scanner scanner = new Scanner(System.in);
-            StrikeBallCountV2 played = baseball.play(scanner.nextLine());
+            GameManagerV2 played = baseball.play(scanner.nextLine());
             if (played.getResultGame() == EXCEPTION.getResultNumber()) {
                 System.out.println("잘못된 입력 값입니다. 다시 입력해주세요."+ "\n");
                 continue;

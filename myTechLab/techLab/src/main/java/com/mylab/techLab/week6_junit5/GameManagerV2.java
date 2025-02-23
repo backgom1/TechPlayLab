@@ -2,13 +2,13 @@ package com.mylab.techLab.week6_junit5;
 
 import static com.mylab.techLab.week5_test.GameResultV1.*;
 
-public class StrikeBallCountV2 {
+public class GameManagerV2 {
 
     private int resultGame;
     private int strikeCount;
     private int ballCount;
 
-    public StrikeBallCountV2() {}
+    public GameManagerV2() {}
 
     public int getStrikeCount() {
         return strikeCount;

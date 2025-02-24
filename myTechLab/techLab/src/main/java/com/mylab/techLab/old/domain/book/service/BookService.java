@@ -15,16 +15,16 @@ import org.springframework.stereotype.Service;
 public class BookService {
 
 
-    private final BookRepository bookRepository;
-
-    public void register(BookRegisterRequest request) {
-
-        boolean existBook = bookRepository.existsByIsbn(request.getIsbn());
-
-        if (existBook) {
-            log.info("Book with isbn {} already exists", request.getIsbn());
-            throw new BookException(BookErrorEnum.DUPLICATE_BOOK);
-        }
-
-    }
+//    private final BookRepository bookRepository;
+//
+//    public void register(BookRegisterRequest request) {
+//
+//        boolean existBook = bookRepository.existsByIsbn(request.getIsbn());
+//
+//        if (existBook) {
+//            log.info("Book with isbn {} already exists", request.getIsbn());
+//            throw new BookException(BookErrorEnum.DUPLICATE_BOOK);
+//        }
+//
+//    }
 }

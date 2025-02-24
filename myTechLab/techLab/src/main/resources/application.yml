@@ -1,30 +1,30 @@
-spring:
-  application:
-    name: techLab
-  datasource:
-    url: jdbc:h2:tcp://localhost/./hodolman
-    username: "sa"
-    password: "1"
-    driver-class-name: org.h2.Driver
-
-  ################## JPA Setting ##################
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-  #################################################
-
-  ############## logging setting ##################
-  logging:
-    level:
-      org:
-        apache:
-          coyote:
-            http11: debug
-
-  logging.level:
-    org.hibernate.SQL: debug
-#################################################
+#spring:
+#  application:
+#    name: techLab
+#  datasource:
+#    url: jdbc:h2:tcp://localhost/./hodolman
+#    username: "sa"
+#    password: "1"
+#    driver-class-name: org.h2.Driver
+#
+#  ################## JPA Setting ##################
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        show_sql: true
+#        format_sql: true
+#  #################################################
+#
+#  ############## logging setting ##################
+#  logging:
+#    level:
+#      org:
+#        apache:
+#          coyote:
+#            http11: debug
+#
+#  logging.level:level
+#    org.hibernate.SQL: debug
+##################################################

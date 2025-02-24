@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class BookController {
 
-    private final BookService bookService;
-
-    @PostMapping("/book/register")
-    public void registerBook(@Valid @RequestBody BookRegisterRequest request){
-        bookService.register(request);
-    }
+//    private final BookService bookService;
+//
+//    @PostMapping("/book/register")
+//    public void registerBook(@Valid @RequestBody BookRegisterRequest request){
+//        bookService.register(request);
+//    }
 
 }

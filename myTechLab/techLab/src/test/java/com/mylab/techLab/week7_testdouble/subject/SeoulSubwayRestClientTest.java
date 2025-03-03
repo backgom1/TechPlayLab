@@ -1,5 +1,9 @@
 package com.mylab.techLab.week7_testdouble.subject;
 
+import com.mylab.techLab.week7_testdouble.subject.dto.response.CardSubwayTime;
+import com.mylab.techLab.week7_testdouble.subject.dto.response.Result;
+import com.mylab.techLab.week7_testdouble.subject.dto.response.SubwayResponse;
+import com.mylab.techLab.week7_testdouble.subject.infra.client.SeoulSubwayRestClient;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -47,5 +51,7 @@ class SeoulSubwayRestClientTest {
         assertEquals("INFO-000", response.getCardSubwayTime().getResult().getCode());
         assertEquals("정상 처리되었습니다", response.getCardSubwayTime().getResult().getMessage());
     }
+
+
 
 }

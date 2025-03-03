@@ -1,4 +1,4 @@
-package com.mylab.techLab.week7_testdouble.subject;
+package com.mylab.techLab.week7_testdouble.subject.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

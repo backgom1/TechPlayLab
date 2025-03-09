@@ -22,6 +22,7 @@ public class PassengerResponse {
 
     public void addPassengerHourStat(HourData stat) {
         int totalPassenger = stat.getGetOn() + stat.getGetOff();
+
         if (totalPassenger > maxPassenger) {
             maxPassengerHour = stat.getHour();
             maxPassenger = totalPassenger;

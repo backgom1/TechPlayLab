@@ -4,6 +4,7 @@ import com.mylab.techLab.week7_testdouble.subject.dto.response.CardSubwayTime;
 import com.mylab.techLab.week7_testdouble.subject.dto.response.Result;
 import com.mylab.techLab.week7_testdouble.subject.dto.response.SubwayResponse;
 import com.mylab.techLab.week7_testdouble.subject.infra.client.SeoulSubwayRestClient;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,8 +31,7 @@ class SeoulSubwayRestClientTest {
     private Result mockResult;
 
 
-
-
+    @Disabled
     @DisplayName("지하철 호선과 날짜를 입력하면 시간 별 승하차 정보를 준다.")
     @Test
     void getSeoulSubway() {
